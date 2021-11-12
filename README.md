@@ -13,4 +13,4 @@ EPUB無障礙輔助性（[中文](https://dpublishing.github.io/epub-specs-tc/ep
 
 ### 文件清單
 
-[W3C EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
+[EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
