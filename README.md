@@ -3,6 +3,7 @@
 ## 文件說明
 
 本清單中之文件是台灣數位出版聯盟基於W3C EPUB 3工作小組於2021年11月01日發布工作草搞翻譯。
+
 EPUB無障礙輔助性（[中文](https://dpublishing.github.io/epub-specs-tc/epub32/epub-accessibility.html)、[英文](https://www.w3.org/Submission/epub-a11y/)）原為一份W3C會員提案文件，目前將透過程序，發展、制定為正式的W3C標準。
 
 ### 注意
@@ -12,4 +13,4 @@ EPUB無障礙輔助性（[中文](https://dpublishing.github.io/epub-specs-tc/ep
 
 ### 文件清單
 
-[W3C EPUB無障礙輔助性 1.1]（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
+[W3C EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
