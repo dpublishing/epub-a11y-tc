@@ -1,0 +1,517 @@
+↑
+→ ReSpec
+1
+W3C
+EPUB Fixed Layout Accessibility
+W3C Editor's Draft 14 December 2021
+
+More details about this document
+This version:
+https://w3c.github.io/epub-specs/epub33/fxl-a11y/
+Latest published version:
+https://www.w3.org/TR/epub-fxl-a11y/
+Latest editor's draft:
+https://w3c.github.io/epub-specs/epub33/fxl-a11y/
+History:
+Commit history
+Editor:
+Wendy Reid (Rakuten Kobo)
+Feedback:
+GitHub w3c/epub-specs (pull requests, new issue, open issues)
+public-epub-wg@w3.org with subject line [epub-fxl-a11y] … message topic … (archives)
+Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang). W3C liability, trademark and permissive document license rules apply.
+
+Abstract
+
+This document, EPUB Fixed Layout Accessibility, outlines techniques and best practices for producing more accessible EPUB® fixed layout publications.
+
+Status of This Document
+
+This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the W3C technical reports index at https://www.w3.org/TR/.
+
+This document was published by the EPUB 3 Working Group as an Editor's Draft.
+
+Publication as an Editor's Draft does not imply endorsement by W3C and its Members.
+
+This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
+
+This document was produced by a group operating under the W3C Patent Policy. W3C maintains a public list of any patent disclosures made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains Essential Claim(s) must disclose the information in accordance with section 6 of the W3C Patent Policy.
+
+This document is governed by the 2 November 2021 W3C Process Document.
+
+Table of Contents
+
+Abstract
+Status of This Document
+1. Introduction
+1.1 Overview
+1.2 The Limits of Fixed Layout Accessibility
+2. Reading Order
+2.1 The Page Position Problem
+2.2 The Stacking Order Problem
+2.3 Altering the Reading Order
+2.4 Removing items from the Reading Order
+2.5 Reading Order across the ‘fold’
+3. Alternative text
+3.1 Overview
+3.2 SVG
+3.3 HTML
+3.4 Complex Image Descriptions
+3.5 Useful Resources for describing images
+4. Navigation
+4.1 EPUB Navigation Document
+4.1.1 Table of Contents
+4.1.2 Page Lists
+4.1.3 Landmarks - the landmarks nav element
+4.2 XHTML Page Titles
+4.3 No NCX requirement
+4.4 EPUB Package Document
+4.5 Reading order
+4.6 Hiding content
+4.7 Structural Hierarchy
+4.8 Region-Based Navigation
+5. Legibility
+5.1 Font Selection
+5.1.1 Font Sizing
+5.1.2 Font Weight
+5.1.3 Font Face
+5.2 Color Contrast
+5.3 Text Layout
+6. Media overlays
+7. Tables
+7.1 ARIA Roles for Tables
+8. Accessibility metadata
+8.1 Accessibility Features
+8.2 Access Mode
+8.3 Access Mode Sufficient
+8.4 Accessibility Hazards
+8.5 Accessibility Summary
+A. References
+A.1 Informative references
+1. Introduction
+
+1.1 Overview
+
+Fixed Layout publications, or publications where the print layout is preserved in the digital edition, have been around since before EPUB 3.0.1. These publications span a number of genres and types, from comic books, cook books, children's books, and more.
+
+The main motivation behind creating fixed layout publications is the need to preserve the print layout of the book, either because of it's importance to the text (i.e. complex diagrams) or it's artistic purpose (i.e. illustrated text). However, these publications are often partially or completely inaccessible to people with print disabilities.
+
+This note serves to help content authors and publishers try to address some of the common accessibility issues found in fixed layout content, including navigation, reading order, and text alternatives. This document is a companion to [EPUB-A11Y-11], specifically for fixed layout publications. All recommendations made in [EPUB-A11Y-11], [EPUB-33], and [EPUB-RS-33] are applied and extended here.
+
+1.2 The Limits of Fixed Layout Accessibility
+
+Fixed Layout publications present some unique challenges for accessibility. The requirements laid out in [EPUB-A11Y-11] recommend [WCAG2] AA, but for many use cases in fixed layout, that might not be possible without fundamental changes to the content.
+
+We want to recognize these challenges for content creators, and in this document will outline some techniques for managing these challenges. We encourage content creators to explore the possibilities that digital publications present, even when creating fixed layout publications.
+
+2. Reading Order
+
+A key concept of EPUB is that an EPUB Publication consists of multiple resources that can be completely navigated and consumed by a person or program in some specific order. - 1.2.1 Reading Order [EPUB-OVERVIEW-33]
+Whereas many reflowable publications have an obvious reading order, or logical progression through their content, fixed-layout publications are often more complex in their design and layout and may consist of multiple readable objects on the same page.
+
+For viewers of the visual page, the reading order can be inferred by various visual triggers including:
+
+Size and styles of font used
+Design features such as imagery and coloured backgrounds
+Position on the page top to bottom, left to right (when using left to right page progression)
+In addition, there may be additional text and image objects on the fixed-layout page which are not required to be included in reading order, such as:
+
+Page numbers
+Section or chapter headings
+Other purely decorative objects
+2.1 The Page Position Problem
+
+For complex designs, the position of objects on the fixed-layout page is not a reliable indicator of their reading order.
+
+In the example page above, the top level heading is inferred by its styling rather than its position. The step-by-step are reading across left to right but in two rows.
+
+The correct reading order indicated with overlaid regions.
+
+In a multi-column document, the linear presentation of the content flows from the top of a column to the bottom of the column, then to the top of the next column.
+
+Example from Understanding Success Criterion 1.3.2: Meaningful Sequence
+
+2.2 The Stacking Order Problem
+
+The default reading order for Text to Speech (TTS) is determined by the order of the elements in the XHTML page (DOM). Popular page layout programs like Adobe InDesign and Apple Pages export the page content in the order of the stacking order of objects on the page rather than their page position. The topmost objects sits above other objects and so is written last in the HTML.
+
+The stacking order is commonly used by layout applications to dictate the reading order.
+
+The design above would be rendered in reverse reading order.
+
+
+<div style="width:500px;height:200px;top:400px;position:absolute; … ">
+<p …="">Bottom object</p>
+</div>
+<div style="width:500px;height:200px;top:225px;position:absolute; … ">
+<p …="">Middle object</p>
+</div>
+<div style="width:500px;height:200px;top:50px;position:absolute; … ">
+<p …="">Top object</p>
+</div>
+2.3 Altering the Reading Order
+
+If a blind user, who reads the page with a screen reader that follows the source order, is working with a sighted user who reads the page in visual order, they may be confused when they encounter information in different orders. A user with low vision who uses a screen magnifier in combination with a screen reader may be confused when the reading order appears to skip around on the screen. A keyboard user may have trouble predicting where focus will go next when the source order does not match the visual order.
+Making the DOM order match the visual order
+
+Automatic exports can derive their reading order either by analysing the position of the page and / or the stacking order in order to influence the reading order. Neither is suitable. Altering the stacking order to dictate the reading order has the potential to alter and disrupt the design of the page.
+
+Altering the stacking order will the alter reading order but may also disrupt the design of the page.
+
+NOTE
+The Adobe InDesign articles panel, which can be used to define the reading order of reflowable EPUB and PDF exports, has no effect on fixed-layout EPUB from Adobe InDesign.
+
+The recommended best practice solution is to adjust the order of the elements in the XHTML page and to preserve the design using CSS z-index.
+
+
+<div style="z-index:3;width:500px;height:200px;top:50px;position:absolute; … ">
+<p …="">Top object</p>
+</div>
+<div style="z-index:2;width:500px;height:200px;top:225px;position:absolute; … ">
+<p …="">Middle object</p>
+</div>
+<div style="z-index:1;width:500px;height:200px;top:400px;position:absolute; … ">
+<p …="">Bottom object</p>
+</div>
+2.4 Removing items from the Reading Order
+
+There may be cases when text appears on the page but is unnecessary, duplicated or otherwise confusing for it to be added to the reading order. e.g. page numbers, section or chapter headings which are already part of the publication’s structure or text used for visual effects.
+
+Adding aria-hidden="true" will remove the entire element from the accessibility API.
+Using the aria-hidden attribute
+
+<div aria-hidden="true">
+<p class="folio">210</p>
+</div>
+2.5 Reading Order across the ‘fold’
+
+Fixed-layout documents can be presented as ‘synthetic spreads’ when a left and right page are presented together as a spread. As each page of the fixed-layout document is a separate XHTML document it is expected that reading order moves through there document from left to right (when using left to right page progression) but is not possible for the reading order to move from the left to the right and then back to the left page again.
+
+If the text must be read in this way, the only solution to maintain the correct reading order is to convert the double page spread in to a single landscape page that contains the entire content of the spread and for the EPUB to be rendered as single pages.
+
+3. Alternative text
+
+Describing images within a fixed layout book will somewhat depend on the type of book these images are within. For example describing a childrens picture book will be quite different than if this is a fixed layout graphic novel such as a comic book.
+
+EDITOR'S NOTE
+For the latest best practices regarding image descriptions it is recommended to visit the DAISY Knowledge Base as sections from there fixed layout image descriptions has been copied here.
+
+3.1 Overview
+
+Images are often an integral part of fixed layout publications. Fixed layout publications sometimes consist entirely of images, in the case of comics, or images may be used as backgrounds to a story, as in children's books.
+
+Ensuring that the information conveyed in the images is available to users who may not be able to perceive the background or may have difficulty processing it, is consequently of high priority in making fixed layouts as accessible as possible.
+
+The basic requirements for all images are to provide alt text and extended descriptions when they contain information necessary to understanding the publication, which applies to fixed layouts. For example, while a reader may be able to follow the dialogue of a story when it is overlaid as text, only the placement on image might give context to what character is saying what.
+
+The challenge with fixed layouts is finding ways to describe the image and provide context given that there is no extra area on the page users can access in which to place a description.
+
+3.2 SVG
+
+SVG provides two elements for describing images:
+
+title — the equivalent of the HTML alt attribute; it is used to provide alternative text for an entire SVG image and individual components within it.
+
+desc — used to provide an extended description for the entire SVG image and individual components within it.
+
+When a publication is made of fixed-layout SVG pages these two elements can be used to describe the content. Note that ARIA attributes (role and aria-describedby) are added to improve support in assistive technologies as SVG is still not well supported.
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" role="group" aria-describedby="svgtitle svgdesc">
+<title id="svgtitle">The Hydrologic Cycle</title>
+<desc id="svgdesc">The continuous cycle by which water …</desc>
+        …
+</svg>
+NOTE
+The role group is given to the image because it contains additional text content (not shown) that the user will interact with. If the image were entirely graphical, the role img would be used instead.
+
+The title and desc SVG elements can also be used to annotate components of a larger image.
+
+
+<g fill="lightgray" stroke="gray" role="img" aria-describedby="gtitle">
+<title id="gtitle">Rain clouds</title>
+…
+</g>
+The one problem with using these elements to annotate SVG images is that their content is typically only made available to users of assistive technologies.
+
+A more advanced approach would be to add a link or button to view the description using script or animations (e.g., open the description like a pop-out). EPUB reading system support for such approaches is likely to be limited and testing is encouraged.
+
+3.3 HTML
+
+When an image is embedded in an HTML fixed layout page, there are more options available for including accessible descriptions. As with SVG fixed layouts, the primary consideration is once again the limitation of having only limited screen space in which to include the description.
+
+For this reason, descriptions are typically hidden from view using a variety of HTML, ARIA and CSS techniques. Descriptions can be hidden, clipped, made opaque, layered under an image, etc. The knowledge base page on hidden content delves into these possibilities in more detail.
+
+Support for scripting in XHTML content documents in EPUB is generally much better than is available for SVG, so there are more reliable techniques that can be used to make the descriptions viewable by a wider range of users. Clicking or tapping on an image can be used to show its description, for example. The Voyage of Life sample EPUB contains an experimental example of this technique.
+
+Unlike reflowable publications, the CSS background-image property can be used with fixed layouts to set the background image for a page. It is best to limit this practice to backgrounds that are purely presentational as much as possible, however, as it complicates the ability to provide a description that any user will be able to reach (i.e., it often involves hiding the description only for assistive technologies).
+
+3.4 Complex Image Descriptions
+
+Depending on the complexity of the image this may require complex description with one of the following formats:
+
+WCAG Technique: Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description
+WCAG Technique: Providing a long description in another location with a link to it that is immediately adjacent to the non-text content
+WCAG Technique: Providing long description for non-text content that serves the same purpose and presents the same information
+(DAISY's Example 2: Extended description in details)
+(DAISY's Example 4: Hidden description)
+If an image splits over two pages, put the full image description of both images in the first image and in the second image reference back to the first. See Multiple Page Spreads.
+
+If there are a group of images in sequence, you only have to describe details in the first image. In the proceeding images only mention what has changed. W3 Tutorial on Image Groups
+
+Not all details are needed in writing alt-text for images, and what you do describe relies heavily on context. For example, if the image is described in the surrounding text, you only need to briefly describe it in the Alt-text. For more information on when, and how to describe you can go to the DIAGRAM centre, or AccessibilePublishing.ca. See resources for links.
+
+3.5 Useful Resources for describing images
+
+W3C - Resources on Alternative Text for Images
+Image Description Guidelines
+POET - Image Description Training Tool
+DIAGRAM - Accessible Image Sample Book
+How to Describe Complex Images for Accessibility - NCAM YouTube Video
+Guide to Image Descriptions by AccessibilePublishing.ca
+4. Navigation
+
+Effective navigation of fixed-layout EPUB can be as important for accessibility as it is for reflowable EPUB. Many of the EPUB accessibility features found in reflowable EPUB can still be used in fixed layout.
+
+4.1 EPUB Navigation Document
+
+The EPUB Navigation Document is a mandatory component of an EPUB Package. It allows Authors to include a human- and machine-readable global navigation layer, thereby ensuring increased usability and accessibility for the user.
+EPUB Packages 3.2 - 5. EPUB Navigation Document
+
+4.1.1 Table of Contents
+
+Longer and more complex visual publications often have a table of contents spanning several EPUB pages, and must have an additional table of contents for the navigation.
+
+A navigation document is a requirement of EPUB; it is recommended to add additional levels of content and structure to the table of contents for accessibility. See EPUB Navigation Document Definition 5.4 - 5.4.2.2 EPUB toc nav Element
+
+4.1.2 Page Lists
+
+Because each page of a fixed layout EPUB is a separate HTML document, a page list can be generated relatively easily and will be created automatically from commonly used fixed-layout creation applications.
+
+See EPUB Navigation Document Definition 5.4 - 5.4.2.3 EPUB page-list nav Element
+
+EDITOR'S NOTE
+There was previously an accessibility requirement in DAISY ACE for a dc:source to be present for any EPUBs that have a page list added. As fixed-layout EPUBS can be created as original works, they have a page list but no other source which caused a serious EPUB violation error in ACE. This has been resolved.
+
+4.1.3 Landmarks - the landmarks nav element
+
+The navigation of fixed layout EPUB can be further increased by adding section markers and landmarks to identify major sections of the publication. e.g. cover image, table of contents, and the start of the main body matter.
+
+See EPUB Navigation Document Definition 5.4 - 5.4.2.4 EPUB landmarks nav Element
+
+4.2 XHTML Page Titles
+
+The title of each XHTML page may be displayed to the end reader. As such it should be a meaningful description of the page contents or a page number.
+
+<title>The Technical Basics</title>
+4.3 No NCX requirement
+
+As the fixed-layout EPUB standard did not exist before EPUB3 there is no requirement for the older and superseded NCX document, the earlier method to indicate navigation in EPUB 2.
+
+4.4 EPUB Package Document
+
+The Package Document is an XML document that consists of a set of elements that each encapsulate information about a particular aspect of the EPUB Package. These elements serve to centralize metadata, detail the individual resources that compose the Package and provide the reading order and other information necessary to render the Rendition.
+From Package Document Definition 3.4
+
+4.5 Reading order
+
+Each page of a fixed-layout EPUB is an individual XHTML page. Pages are presented sequentially in the order that they are listed in the Spine element of the Package Document.
+
+The reading order within the page can be complex. See the reading order section for more information on pages.
+
+4.6 Hiding content
+
+Alongside the main content of the publication, auxiliary content that enhances or augments the primary content and can be accessed out of sequence. Examples of auxiliary content include: notes, descriptions and answers to quizzes. See https://www.w3.org/publishing/epub3/epub-packages.html#attrdef-itemref-linear
+
+4.7 Structural Hierarchy
+
+The use of heading tags ensures users do not have to rely on visual styling to understand and navigate the document outline. The structural hierarchy is already being considered at the design stage of visual page layout. By adding this information into the styles on the page and the tags used on export, we pull can this structure into EPUB. Example:
+
+<h2 class="Main-Head">The Technical Basics</h2>
+<p class="Paragraph">Photography, in its best form, is a mesh of science and art. You need both. For science, you need to understand the technical elements that affect the image – depth of field, diffraction, exposure, focus, magnification and more. On the artistic side, there are so many considerations from composition, colour, contrast, understanding what “beauty” is perceived as, narratives and storytelling elements and beyond.</p>
+<p class="Paragraph">The deeper you can weave the mesh of these two elements, science and art, the more magical your images will become.</p>
+<h3 class="Subhead">Understanding Depth of Field</h3>
+<p class="Paragraph">There are three primary considerations for how much depth of field – the amount of the scene in focus in the resulting photograph. The size of your aperture, the focal length of your lens, and the distance from your subject all have an impact on how much you’ll get in focus in a single frame.</p>
+4.8 Region-Based Navigation
+
+Within a page it may be possible to add the navigation to ‘regions of interest’ within that page. Especially useful for splitting up a larger visual partook or layout for reading on smaller screens.
+
+EPUB Region-Based Navigation, introduces conventions for region-based navigation through a visual rendition of a Publication based on Regions of Interest.
+NOTE
+EPUB Region-Based Navigation is currently only supported by a few reading systems. Content creators are advised to test any EPUBs that use this feature.
+
+5. Legibility
+
+The legibility, or readability, of fixed layout content is an important contributing factor to its accessibility, particularly for users with low vision, cognitive, or learning disabilities. As text in a fixed layout document is unalterable, it is important to consider best practices in putting together clear, legible documents. Content creators are reminded that ebooks can be read on a number of different screen sizes and devices, many that will be smaller than the printed version of the page. Designs for fixed layout content should take into account these smaller screen sizes and their impact on legibility and layout. This section will focus on what to consider when constructing more legible fixed layout publications.
+
+5.1 Font Selection
+
+There is no single font that meets the legibility needs of all users, but considering certain font characteristics to increase legibility is possible. When planning font selections in fixed layout publications, consider the following:
+
+Font sizing
+Font weight
+Font face
+5.1.1 Font Sizing
+
+There is no font size guideline in [WCAG2], however the standard default font size in most desktop and mobile browsers is 16pt for body text (I.e. in a <p> element). This size is sufficient for most content, and headings should be based off of it by using em or rem sizing in [CSS]. If content contains a great deal of text, it is also recommended to consider a larger body font size like 18pt to ensure readability.
+
+Content creators should also ensure font size patterns are consistent throughout the content, to assist users in differentiating and contextualizing the content.
+
+5.1.2 Font Weight
+
+Depending on the chosen font, it might be necessary to consider the weight of the font to make it more legible. A font weight of 400 is considered normal or regular, but depending on the font face, may be too light. A font that is too light can disappear into the background of a page, especially if factors like clarity or contrast are not considered. A font weight of 700 is considered bold, and would be more readable, but overusing a bold typeface can present its own issues for legibility.
+
+5.1.3 Font Face
+
+Selecting a font face for your content can depend on a number of factors. When choosing a font for fixed layout content it’s important for content creators to consider readability because a user will not be able to alter the font face to suit their needs or preferences.
+
+One of the most important factors for the readability of fonts relates to character differentiation. Character differentiation in a font is a strong indicator of readability, specifically for characters that have similar shapes in a font face. In the Latin alphabet, letters like I and l, b and d, or a o and e can look very similar to one another depending on the style of the font. The same issue is possible in fonts for other alphabets, particularly when glyphs are similar in appearance or use similar elements.
+
+5.2 Color Contrast
+
+[WCAG2] specifies that the color contrast should meet certain ratios depending on its size and weight.
+
+Body text, or text that is less than 18pt (or 14pt bold) in size must have a contrast of at least 4.5:1 to the background.
+
+Large scale text, text that is over 18pt (or 14pt bold) must have a contrast of at least 3:1 to the background.
+
+It is recommended text be placed on a solid background or one that is significantly muted in order to increase the legibility of the text.
+
+5.3 Text Layout
+
+The layout of text in a fixed-layout publication is also important when considering legibility. As outlined in the Reading Order section, the order of content on the page, and the order in code should match. When laying out a page in a fixed layout document, consider the order the reader should follow, how to indicate that order visually, and any complications to the order (i.e. asides, definitions, images, etc).
+
+When constructing a page or chapter, consider the following:
+
+Use headings to indicate hierarchy and flow of information (i.e. start a page with a h2, with subsequent sections as h3 or other levels as appropriate)
+Place related content in close proximity on the page, if an image illustrates a point made in the text, place that image in proximity to the text, or point to where it might be (i.e. “a picture of Emperor Penguins in their natural habitat can be found on the next page”)
+Use consistent design patterns for supplemental content on the page so a reader will know its purpose or be able to contextualize it (i.e. definitions or questions)
+Consider the spacing of sections of text and associated elements, ensure that pages are not too cramped to allow readers to process the contents of the page, but not so spaced out that someone using zoom or magnification may miss adjacent elements
+6. Media overlays
+
+TBW
+
+7. Tables
+
+An image of text, or images with text, are not accessible. It is important to try to avoid images of text whenever possible, which is more of a challenge in FXL.
+
+The best way to create an accessible table is to present it as tabular data. This is already documented in the DAISY Knowledge Base with directions on creating semantic tagging for tables.
+
+If the table needs to remain an image, another option is to use alt-text and caption or ARIA roles to describe the data in logical reading order. The caption could be used as a summary of the table, and the Alt-text would dive deeper. You would start with describing what the header row is followed by what is presented in each row. You could then dive deeper and list all the data as it appears in reading order.
+
+Depending on the complexity of the image this may require complex description with one of the following formats:
+
+Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description
+Providing a long description in another location with a link to it that is immediately adjacent to the non-text content
+Providing long description for non-text content that serves the same purpose and presents the same information
+Extended description in details
+Using hidden description (see example 4)
+7.1 ARIA Roles for Tables
+
+Provide an extended description for a table using either aria-describedby or aria-details.
+
+The advantage of aria-details over aria-describedby is that it allows users access to the markup of the linked description (which could be the table markup if you put it, for example, inside a details element to collapse it). The current drawback, however, is that there isn't great support yet for the attribute. And expanding details element within a fixed layout page is also likely to wreak a bit of havoc when users click on it (unless you find a way to reliably position it offscreen, but then that limits who can access it).
+
+The aria-describedby attribute's big drawback is that it turns the description into one long text string that users have to listen to. There's no way to navigate the columns and rows or have headers read out, so it's likely going to be very difficult for users to make sense of except for very simple and very small tables.
+
+8. Accessibility metadata
+
+Books with accessible elements require metadata to indicate how they are accessible, and if they present and hazards to the reader.
+
+8.1 Accessibility Features
+
+The schema.org property accessibilityFeature is used to define all accessibility features within this book.
+
+A few values that could apply to a Fixed Layout book might be:
+
+alternativeText - (Images are described with alt text)
+longDescriptions - (Complex images are described in detail)
+displayTransformability - Be careful here as images of text would not qualify
+readingOrder - Be careful here to ensure correct reading order of visual elements
+EXAMPLE 1
+<meta property="schema:accessibilityFeature">
+    alternativeText
+</meta>
+<meta property="schema:accessibilityFeature">
+    readingOrder
+</meta>
+8.2 Access Mode
+
+The schema.org property accessMode is used to define the ways in which this book can be consumed be that visual, textual, auditory, or tactile.
+
+A picture book would only have an accessMode of visual
+
+EXAMPLE 2
+<meta property="schema:accessMode">
+    visual
+</meta>
+A Fixed Layout book which contains both text and images would have two separate accessMode's defined
+
+EXAMPLE 3
+<meta property="schema:accessMode">
+    visual
+</meta>
+<meta property="schema:accessMode">
+    textual
+</meta>
+8.3 Access Mode Sufficient
+
+The schema.org property accessModeSufficient is used to define the combinations in which this book can be consumed be that visual, textual, auditory, or tactile.
+
+For picture books the way one would consume this would be completely visually so having accessModeSufficient of visual would be solely defined.
+
+EXAMPLE 4
+<meta property="schema:accessModeSufficient">
+    visual
+</meta>
+For Fixed Layout books that have both visual and textual elements then having accessModeSufficient of visual,textual would be appropriate.
+
+EXAMPLE 5
+<meta property="schema:accessModeSufficient">
+    visual,textual
+</meta>
+If a Fixed Layout book has all images fully described then having accessModeSufficient of textual would be appropriate which implies this book is Screen Reader Friendly and can be fully read by assistive technology.
+
+EXAMPLE 6
+<meta property="schema:accessModeSufficient">
+    textual
+</meta>
+8.4 Accessibility Hazards
+
+The schema.org property accessibilityHazard defines any hazards within the book.
+
+Typically there would be no hazards within a Fixed Layout book, as currently there are only three possible hazards defined flashing, sound, and motionSimulation. All of which refer to embedded sound, video or motion images such as a gif within the book.
+
+If there are no hazards within the book one can simply have none or can call out each specific non-hazard explicityly by stating noFlashingHazard, noSoundHazard, and noMotionSimulationHazard.
+
+EXAMPLE 7
+<meta property="schema:accessibilityHazard">
+    none
+</meta>
+8.5 Accessibility Summary
+
+The schema.org property accessibilitySummary is a human readable statment on how accessible or inacessible this book is.
+
+EXAMPLE 8
+<meta property="schema:accessibilitySummary">
+    This Fixed Layout EPUB contains a lot of visual formatting
+    where images can span over two pages.  All images do have
+    a textual description to aid in accessibility.
+</meta>
+A. References
+
+A.1 Informative references
+
+[CSS]
+Reference not found.
+[EPUB-33]
+EPUB 3.3. Matt Garrish; Ivan Herman; Dave Cramer. W3C. 8 December 2021. W3C Working Draft. URL: https://www.w3.org/TR/epub-33/
+[EPUB-A11Y-11]
+EPUB Accessibility 1.1. Matt Garrish; George Kerscher; Charles LaPierre; Gregorio Pellegrino; Avneesh Singh. W3C. 8 December 2021. W3C Working Draft. URL: https://www.w3.org/TR/epub-a11y-11/
+[EPUB-OVERVIEW-33]
+EPUB 3 Overview. Matt Garrish; Ivan Herman. W3C. 8 December 2021. W3C Working Group Note. URL: https://www.w3.org/TR/epub-overview-33/
+[EPUB-RS-33]
+EPUB Reading Systems 3.3. Matt Garrish; Ivan Herman; Dave Cramer. W3C. 8 December 2021. W3C Working Draft. URL: https://www.w3.org/TR/epub-rs-33/
+[WCAG2]
+Web Content Accessibility Guidelines (WCAG) 2. W3C. URL: https://www.w3.org/TR/WCAG2/
+↑
