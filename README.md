@@ -13,15 +13,14 @@ EPUB無障礙輔助性（[中文](https://dpublishing.github.io/epub-specs-tc/ep
 
 ### 文件清單
 
-[EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
+-[x] [EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
 
-[EPUB無障礙技術指引 1.1]（原文：[EPUB Accessibility Techniques 1.1
+-[x] [EPUB無障礙技術指引 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-tech-11.html)（原文：[EPUB Accessibility Techniques 1.1
 ](https://www.w3.org/TR/epub-a11y-tech-11/)）
 
-[EPUB 無障礙輔助性與歐盟無障礙法之對應關係]（原文：[EPUB Accessibility - EU Accessibility Act Mapping](https://www.w3.org/TR/epub-a11y-eaa-mapping/)）
+-[ ] [EPUB 無障礙輔助性與歐盟無障礙法之對應關係]（原文：[EPUB Accessibility - EU Accessibility Act Mapping](https://www.w3.org/TR/epub-a11y-eaa-mapping/)）
 
+-[ ] [EPUB 無障礙輔助性常見問題]（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
 
-[EPUB 無障礙輔助性常見問題]（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
-
-[EPUB Fixed Layout 無障礙輔助性]（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/]
+-[ ] [EPUB Fixed Layout 無障礙輔助性]（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/]
 )）
