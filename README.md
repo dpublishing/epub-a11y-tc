@@ -22,5 +22,5 @@ EPUB無障礙輔助性（[中文](https://dpublishing.github.io/epub-specs-tc/ep
 
 - [EPUB 無障礙輔助性常見問題]（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
 
-- [EPUB Fixed Layout 無障礙輔助性]（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/]
+- [EPUB Fixed Layout 無障礙輔助性]（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/)
 )）
