@@ -40,7 +40,7 @@ Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang). W3C liability, trademark an
 2.1 本規格適用於何種版本的EPUB？
 3. 發現性詮釋資料
 3.1 為什麼選擇使用schema.org詮釋資料？
-3.2 為什麼發現性詮釋資料不要求ONIX？
+3.2 為什麼發現性詮釋資料不使用ONIX？
 3.3 我可以把具發現性的出版品是為具備無障礙輔助性嗎？
 4. 無障礙輔助性適用性
 4.1 如果無法符合所有規定會怎麼辦？
@@ -48,7 +48,7 @@ Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang). W3C liability, trademark an
 4.3 為什麼不將EPUB的規定加到WCAG中？
 4.4 為什麼在技巧中對僅對一些HTML元素提供指引？
 4.5 如果有其他可以提供內容無障礙輔助性，卻沒有列出的方法，該怎麼辦？
-4.6 有對規定的檢查列表嗎？
+4.6 有規定的檢查列表嗎？
 4.7 為什麼適用性詮釋資料在版本1.1中改變了？
 5. 最佳化的出版品
 5.1 為什麼要辨認最佳化？
@@ -74,97 +74,97 @@ Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang). W3C liability, trademark an
 
 包裝文件要求使用Schema.org詮釋資料，是因為其提供了完善的描述性詮釋資料組合符合EPUB詮釋資料模型。
 
+隨著EPUB持續與開放網頁平台整合 — Schema.org詮釋資料也被主要搜尋引擎所採用來對資訊編目 — 這也表示在穩定性上合乎該規格的未來版本。
 
-As EPUB continues to integrate with the Open Web Platform — where schema.org metadata is used by the major search engines when cataloguing information — it also represents a stable fit for future versions of the standard.
+### 3.2 為什麼發現性詮釋資料不使用ONIX？
 
-### 3.2 為什麼發現性詮釋資料不要求ONIX？
+雖然ONIX是電子書遞送通路的重要詮釋資料，但EPUB出版品並不一定是書，同時也不是全都透過主要電子書通路遞送。要求所有的EPUB內容作者都包含一份ONIX紀錄可能會讓製作變得麻煩，可能會讓作者更不想包含無障礙輔助詮釋資料。同時也會要求製作工具能夠創建以及更改ONIX紀錄，而且也會要求閱讀系統能分析紀錄已取得資訊。為對既有的生態體系造成最小的衝突，並且確保詮釋資料一直都能以容易取得方式提供，而選擇了Schema.org詮釋資料。
 
-Although ONIX is critical metadata in ebook distribution channels, EPUB publications are not necessarily books nor are they all distributed through the major ebook channels. Requiring all authors of EPUB content to include an ONIX record would complicate production, potentially turning authors off from including accessibility metadata. It would also require authoring tools to be able to create and modify ONIX records, and Reading Systems to parse the records to retrieve the information. To minimize this impact on the existing ecosystem, and ensure that the metadata is always available in an easily retrievable fashion, schema.org metadata was chosen.
+在包裝文件中選擇schema.org詮釋資料並不會降低在ONIX紀錄中提供完整無障礙輔助詮釋資料的需求，同時規定也要求在任何伴隨EPUB出版品的遞送紀錄中包含無障礙輔助詮釋資料。
 
-The choice of schema.org metadata in the package document does not diminish the need for rich accessibility metadata in ONIX records, and there is a requirement to include accessibility metadata in any distribution records that accompany an EPUB publication.
-
-The accessibility group is looking to work with the various metadata authorities to harmonize their accessibility vocabularies as a future objective so that the same information can be encoded across formats.
+無障礙輔助性推動團體正在積極與各種詮釋資料權威合作，以求無障礙輔助性用語的和諧，期望未來能達到一樣的資訊可以跨格式編碼適用。
 
 ### 3.3 我可以把具發現性的出版品是為具備無障礙輔助性嗎？
 
-If your publication only includes discoverability metadata (i.e., it does not meet the accessibility requirements and is not an optimization), it must not be promoted as accessible per this specification.
+如果你的出版品僅包含了發現性詮釋資料（例如，其不符合無障礙輔助性規定，並且也不是最佳化出版品），就不可以宣稱具備符合本規格的無障礙輔助性。
 
-Meeting the discovery requirements allows users to determine whether the content will be usable by them, but is not in itself an achievement that they need to be made aware of.
+符合發現性規定可以讓使用者判斷是否該內容可以被他們所使用，但這件事自身並非一件達成項目，需要有所自覺。
 
 ## 4. 無障礙輔助性適用性
 
 ### 4.1 如果無法符合所有規定會怎麼辦？
 
-Changing production practices is never easy, but there also needs to be a clear benchmark to meet to begin making progress. The EPUB 3 Working Group understands that the ability to meet these requirements is going to vary depending on the nature of the content produced and how it is produced.
+更改製作程序絕不容易，但也需要有明確的達成標竿來開始有所進度。EPUB 3工作小組了解按照產製內容的性質，以及產製內容的流程不同，在符合這些規定的難度上會有所差異。
 
-The Working Group has also structured the specification to soften the move as much as possible, without compromising the usability of the content. The specification only requires WCAG 2.0 Level A conformance, for example, even though many regulatory frameworks require Level AA conformance for web content (publishers already have to meet the higher level in such jurisdictions). Conformance is also not mandatory for an EPUB publication to be valid, so that accessibility does not become a barrier to distribution while publishers are improving their processes.
+工作小組也對規格做出結構，讓改變曲線盡可能地緩和，在不對內容可用性妥協的狀況下。本規格僅要求WCAG 2.0 A等級適用性，例如已經有許多法規框架對網頁內容要求AA等級適用性（在所轄範圍內，出版商已經需要符合更高的標準）。對EPUB出版品而言，適用性也並非合規的強制規定，所以無障礙輔助性在出版社改善其流程時不會對遞送產生障礙。
 
-The Working Group could not lower the threshold below WCAG conformance, as trying to pick and choose rules to follow would lead to content that is only accessible to certain audiences, and certifying who those audiences are would be a complex undertaking.
+工作小組不能把門檻降低到WCAG適用性以下，例如試著挑選規則來依循，這樣會讓內容僅對某些讀者具備無障礙輔助性，同時驗證那些讀者是誰也會是個困難的過程。
 
-The issue with raising production quality is why the discovery metadata is so important to include. A publisher may not be able to state their content fully conforms to the specification, but if the work that has been done can be surfaced then users can make the decision for themselves about whether it will still meet their needs.
+隨著製作品質提升而來的問題，使得發現性詮釋資料變得重要而必須。出版社可能無法敘述他們的內容完全符合該規格，但只要提供了發現性詮釋資料，就可足以讓使用者自己做出決定，判斷內容是否符合他們的要求。
 
 ### 4.2 本規格為WCAG的延伸嗎？
 
-No, it leverages WCAG and includes additional requirements, but is not an official extension and should not be referred to as one.
+不，本規格借用了WCAG並且包含額外的規定，但並非一項正式的延伸，也不應該被當作延伸。
 
 ### 4.3 為什麼不將EPUB的規定加到WCAG中？
 
-The EPUB 3 Working Group and Web Accessibility Initiative do calloborate to integrate requirements in WCAG 2 when possible. It is anticipated that greater integration of EPUB and web accessibility requirements will occur in a future WCAG 3.
+EPUB 3工作小組和網頁無障礙輔助性促進會合作把規定整合到WCAG2中。但EPUB與網頁無障礙輔助性的整合預期會是大工程，將會在未來的WCAG 3進行。
 
 ### 4.4 為什麼在技巧中對僅對一些HTML元素提供指引？
 
-The techniques document does not duplicate the general web acccessibility techniques already defined by WCAG 2. It only addresses situations where the guidance differs for publications, or where no guidance exists.
+技巧文件並不重複已經定義在WCAG 2中，一般性質的網頁無障礙輔助性技巧。其僅針對出版品在作法上會有所不同，或者沒有指引的狀況。
 
 ### 4.5 如果有其他可以提供內容無障礙輔助性，卻沒有列出的方法，該怎麼辦？
 
-The techniques documents for both the EPUB Accessibility specification and WCAG 2 are advisory in nature. New techniques are always being developed to handle new situations. If a new technique provides the same level of accessibility, it is acceptable to use it.
+技巧文件對EPUB無障礙輔助性規格和WCAG 2兩文件而言僅為參考性質。新技巧持續被開發出來以因應新情境。如果新的技巧可以提供相同等級的無障礙輔助性，就可以採用。
 
-### 4.6 有對規定的檢查列表嗎？
+### 4.6 有規定的檢查列表嗎？
 
-The techniques do not include a checklist, as the requirement for conformance will vary from publication to publication (e.g., depending on the type of content included).
+技巧文件不包含檢查列表，因為對適用性的規定按照出版品不同而會有所差異（例如，所包含的內容類別不同）。
 
-The Ace by DAISY validator is now available for machine-checking the accessibility of publications. It is accompanied by the Ace SMART tool that guides human testing and verification of WCAG conformance.
+現在可以使用DAISY所打造的Ace驗證器，提供了對出版品的無障礙輔助性機讀檢測。所伴隨的Ace SMART工具可以協助進行人類測試以及驗證WCAG的適用性。
 
 ### 4.7 為什麼適用性詮釋資料在版本1.1中改變了？
 
-In verison 1.0 of the specification, the dcterms:conformsTo property used a URL for the old International Digital Publishing Forum (IDPF) as the identifier for conformance.
+在1.0版本的規格中，dcterms:conformsTo特性使用一個過往國際數位出版論壇（IDPF）的網址作為適用性的識別碼。
 
-With the IDPF having merged into W3C, it longer made sense to use a URL for the old organization. To avoid the problem of organization-specific URLs occurring again in the future, the group decided to create new identifiers that focus solely on the specification and conformance to it.
+IDPF已經和W3C合併，使用舊組織的網址不再有意義。為了避免未來使用指定組織的網址的問題再次發生，小組決定創建新的識別碼僅用於該規格的適用性上。
 
-The new identifiers are equally as unique as the old URLs, so conformance statements are consistent across publications and can still be easily checked by machine (e.g., for validation, ingestion into a distribution system, etc.).
+新的識別碼和舊網址一樣為固有，所以跨出版品的適用性宣告為恆定並且可以輕易地透過機器檢驗（例如，供驗證，被遞送系統所接收等等）。
 
-A human-readable statement about conformance should be included in the schema:accessibilitySummary property. The EPUB Accessibility specification does not require wording for such statements.
+供人類閱讀的適用性宣告應該使用schema:accessibilitySummary特性來包含。EPUB無障礙輔助性規格規定該宣告的用詞。
 
 ## 5. 最佳化的出版品
 
 ### 5.1 為什麼要辨認最佳化？
 
-The identification of optimizations ties into the importance of discovery metadata. Content that meets accessibility requirements for specific user groups needs to be discoverable by those groups, even if the content is not considered broadly accessible (e.g., braille- and audio-optimized publications).
+識別最佳化的方法與發現性詮釋資料的重要性相繫。符合供特定使用者群組需求之無障礙輔助規定的內容就該被該群組發現到，就算內容不被視為具備廣泛的無障礙輔助性也一樣（例如，對點字或者語音最佳化的出版品）。
 
-Identifying the third-party standard the content conforms to gives users this missing context.
+識別內容合乎哪些第三方標準可以提供使用者缺少的脈絡。
 
 ### 5.2 我該如何識別最佳化標準？
 
-Conformance to a third-party standard is indicated by including a link tag in the metadata with a URL that points to where the standard is defined.
+符合第三方標準可以在詮釋資料中包含一個link標籤加上連結指向標準被定義的位址以識別。
 
-EXAMPLE 1
-The following example indicates that the publication conforms to DAISY guidelines for navigable audio-only publications.
+
+範例 1
+
+以下範例識別該出版品符合DAISY可導覽僅有音訊出版品指引
 
 <link
    rel="a11y:conformsTo"
    href="http://www.daisy.org/guidelines/epub/navigable-audio-only-epub3-guidelines"/>
-It is recommended to include a human-readable description of conformance in the schema:accessibilitySummary property, as well.
+
+建議同時在schema:accessibilitySummary特性中加入人可閱讀的適用性描述。
 
 ### 5.3 可以稱最佳化的出版品具無障礙輔助性嗎？
 
-The EPUB Accessibility specification does not endorse optimizations; it only address how to identify them in the metadata.
+EPUB無障礙輔助性規格並不為最佳化背書，僅指出如何在詮釋資料中進行識別。
 
-Any claims about the accessibility of an optimization must not make reference to the EPUB Accessibility specification. Such a claim should identify the standard the publication conforms to and the organization that created that standard.
+任何宣告具備最佳化的無障礙輔助性，都不得參照EPUB無障礙輔助性規格。宣告應該識別該出版品所合乎的標準，以及制訂該標準的組織。
 
-### 5.4 最佳化標準有沒有指南？
+### 5.4 最佳化標準有沒有指引？
 
-The EPUB 3 Working Group maintains a guide of known optimization standards to help facilitate lookup of their identifiers.
+EPUB 3工作小組維護一份已知的最佳化標準指引清單，以協助便於尋找其識別碼。
 
-This list is provided solely for informational purposes.
-
-↑
+該清單為資訊目的另外提供。
