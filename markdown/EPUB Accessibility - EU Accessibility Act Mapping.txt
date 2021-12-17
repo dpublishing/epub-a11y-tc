@@ -1,60 +1,73 @@
-↑
-→
-W3C
-EPUB Accessibility - EU Accessibility Act Mapping
-W3C Group Note 08 December 2021
+EPUB無障礙輔助性 - 歐盟無障礙法之對應關係
+W3C小組備忘 2021年12月8日
 
-More details about this document
-This version:
+更多關於本文件的細節
+
+本版本：
+
 https://www.w3.org/TR/2021/NOTE-epub-a11y-eaa-mapping-20211208/
-Latest published version:
+
+最新發佈版本：
+
 https://www.w3.org/TR/epub-a11y-eaa-mapping/
-Latest editor's draft:
+
+最新編輯草稿：
+
 https://w3c.github.io/epub-specs/epub33/epub-a11y-eaa-mapping/
-History:
+
+歷史：
 https://www.w3.org/standards/history/epub-a11y-eaa-mapping
-Commit history
-Editors:
+
+更新歷程
+
+編輯者：
+
 Cristina Mussinelli (Fondazione LIA)
 Luc Audrain (Invited Expert)
 Gregorio Pellegrino (Fondazione LIA)
-Feedback:
+
+提出回饋：
+
 GitHub w3c/epub-specs (pull requests, new issue, open issues)
-public-epub-wg@w3.org with subject line [epub-a11y-eaa-mapping] … message topic … (archives)
+
+以郵件主旨…訊息主題… [epub-a11y-eaa-mapping] 寄送到public-epub-wg@w3.org(存檔)
+
 Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang). W3C liability, trademark and permissive document license rules apply.
 
-Abstract
+## 摘要
 
-The European Accessibility Act (EAA) is an EU directive that establishes binding accessibility targets that must be met by many different types of products and services to strengthen the rights of people with disabilities to access goods and services, including ebooks, dedicated reading software, ereading devices, and ecommerce.
+歐盟無障礙法（The European Accessibility Act, EAA）為一份歐盟指令，其建立了無障礙輔助性目標的約束力，許多不同類型的產品與服務都必須符合，以強化障礙者存取產品以及服務的人權，包括電子書、專用的閱讀軟體、數位閱讀裝置以及電子商務。
 
-The EAA has been approved on 27 June 2019, should be implemented by EU Member States within 28 June 2022 and will enter in force from 28 June 2025.
+EAA於2019年6月27日通過，需要由歐盟會員國在2022年6月28日前執行，並且於2025年6月28日成為強制狀態。
 
-This note aims to demonstrate that the technical requirements of the European Accessibility Act related to ebooks are met by the EPUB® standard.
+本備忘的目的在於展示歐盟無障礙法的技術性與電子書相關的規定，EPUB®標準可以滿足。
 
-The methodology used is mapping the requirements of the EU Accessibility Act related to ebooks to the EPUB Accessibility specification.
+所使用的方法論是將歐盟無障礙法與電子書相關的規定映射到EPUB無障礙輔助性規格。
 
-Status of This Document
+## 本文件狀態
 
-This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the W3C technical reports index at https://www.w3.org/TR/.
+本章節解釋了本文件在其發表時的狀態。W3C的當前出版品清單以及本技術報告的最新版本可於位在https://www.w3.org/TR/之W3C技術報告索引中取得。
 
-This document was published by the EPUB 3 Working Group as a Group Note using the Note track.
+本文件由EPUB 3工作小組透過備忘流程發布為小組備忘。
 
-Group Notes are not endorsed by W3C nor its Members.
+小組備忘不代表受W3C及其會員支持。
 
-This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
+本文件為草稿，而且可能會隨時會被其他文件更新、取代、淘汰。編輯作業尚未完成前，不適宜引用本文件。
 
-The W3C Patent Policy does not carry any licensing requirements or commitments on this document.
+W3C專利政策不承擔本文件的任何授權要求與貢獻。
 
-This document is governed by the 2 November 2021 W3C Process Document.
+本文件受 2021年11月2日W3C流程文件所規範。
 
-Table of Contents
+目錄
 
-Abstract
-Status of This Document
-1. How EPUB conforming to EPUB accessibility guidelines cover European Accessibility Act requirements
-2. Mappings
-2.1 Annex I
-2.1.1 Section III
+摘要
+
+本文件狀態
+
+1. 符合EPUB無障礙輔助性指引的EPUB如何涵蓋歐盟無障礙輔助法規定
+2. 對應方式
+2.1 附錄 I
+2.1.1 節 III
 2.1.1.1 (a)
 2.1.1.2 (b)
 2.1.1.2.1 (i)
@@ -66,7 +79,7 @@ Status of This Document
 2.1.1.2.7 (vii)
 2.1.1.3 (c)
 2.1.1.4 (d)
-2.1.2 Section IV
+2.1.2 節 IV
 2.1.2.1 (f)
 2.1.2.1.1 (i)
 2.1.2.1.2 (ii)
@@ -74,144 +87,172 @@ Status of This Document
 2.1.2.1.4 (iv)
 2.1.2.1.5 (v)
 2.1.2.1.6 (vi)
-A. References
-A.1 Informative references
-1. How EPUB conforming to EPUB accessibility guidelines cover European Accessibility Act requirements
+A. 參考資料
+A.1 參考性文件
 
-EPUB is the standard format for the creation and distribution of publications in the digital publishing trade sector.
+## 1. 符合EPUB無障礙輔助性指引的EPUB如何涵蓋歐盟無障礙輔助法規定
 
-The specifications of the EPUB standard are based on the Open Web Platform: HTML, CSS, JavaScript and SVG are the core technologies used for content creation. The use of the latter means that EPUB publications can be written with a high degree of accessibility simply through the proper application of established web accessibility techniques, namely the Web Content Accessibility Guidelines (WCAG).
+EPUB為在數位出版商業部門中，供製作以及遞送出版品的標準格式。
 
-In order to outline how to make fully accessible EPUBs, the EPUB Accessibility guidelines have been drafted to address two key needs in the EPUB ecosystem:
+EPUB標準的規格基於開放網頁平台：HTML、CSS、Javascript和SVG為內容製作的核心技術。使用這些技術意味著EPUB出版品可以輕易地應用適當的既有網頁無障礙輔助技巧，稱為網頁內容無障礙輔助性準則（Web Content Accessibility Guidelines, WCAG），就能以高度無障礙輔助性製作。
 
-discoverability of accessibility features of publications;
-evaluation and certification of accessible EPUB publications.
-Providing accessibility metadata facilitates informed decisions about the usability of an EPUB publication. Consumers can examine the characteristics of the content and decide whether an EPUB publication is appropriate for each need.
+為了說明該如何製作具完整無障礙輔助性的EPUB，EPUB無障礙輔助性指引已經起草，以說明兩項在EPUB生態系統中的兩大關鍵需求：
 
-While it has always been possible to create EPUB publications with a high degree of accessibility, this document also establishes formal requirements for contents to be certified as accessible. These requirements provide EPUB creators with a clear set of guidelines for evaluating their content with respect to quality certification and enable it.
+對出版品無障礙輔助功能的發現性；以及對無障礙EPUB出版品的評量與認證。提供無障礙輔助詮釋資料有助於做出資訊充分的抉擇，判斷一本EPUB出版品的可用性。消費者可以檢驗其內容的特徵並且判斷是否該EPUB出版品符合其需求。
 
-The EPUB Accessibility does not target a single version of EPUB (most commercially available publications are in EPUB 3 or EPUB 2 format). It is designed to be applicable to all EPUB publications conforming to any version or profile, including future versions of the standard.
+在隨時都可能創建具高度無障礙輔助性的EPUB出版品的狀況下，本文件題建構了對內容的正式規定已被認證為具無障礙輔助性。這些規定讓EPUB製作者可以有明確的指引集來評量其內容，作為品質認證並且使其成為可能。
 
-2. Mappings
+EPUB無障礙輔助性並不針對單一版本的EPUB（大多數商售可獲得的出版品都使用EPUB 3或者EPUB 2格式）。其設計上適用於所有的EPUB出版品，無論合乎任何版本或者子集，包含該標準的未來版本。
 
-2.1 Annex I
+## 2. 對應方式
 
-Accessibility requirements for products and services
-2.1.1 Section III
+### 2.1 附錄 I
 
-General accessibility requirements related to all services covered by this Directive in accordance with Article 2(2)
+對產品與服務的無障礙輔助性規定。
 
-The provision of services in order to maximise their foreseeable use by persons with disabilities, shall be achieved by:
-2.1.1.1 (a)
+#### 2.1.1 節（section） III
 
-Ensuring the accessibility of the products used in the provision of the service, in accordance with Section I of this Annex and, where applicable, Section II thereof
-2.1.1.2 (b)
+與本指令涵蓋所有服務相關的通用無障礙輔助性規定，須符合2(2)條（Article）。
 
-Providing information about the functioning of the service, and where products are used in the provision of the service, its link to these products as well as information about their accessibility characteristics and interoperability with assistive devices and facilities
-This requirement is satisfied by EPUB Accessibility, section Discoverability.
+提供服務時，應該要最大化障礙者可預期的使用，能透過以下方式達成：
 
-2.1.1.2.1 (i)
+##### 2.1.1.1 (a)
 
-Making the information available via more than one sensory channel
-Out of scope: requirement for Reading Systems and Distributors.
+確保提供服務時，使用的產品之無障礙輔助性合乎本附錄之節I，若可應用，也包含節II。
 
-2.1.1.2.2 (ii)
+##### 2.1.1.2 (b)
 
-Presenting the information in an understandable way
-Out of scope: requirement for Reading Systems and Distributors.
+提供服務的功能之相關資訊，以及所提供服務何處會使用到產品，其連結到產品的同時提供其無障礙輔助性特徵以及對輔助裝置與設備的通用性。
 
-2.1.1.2.3 (iii)
+本項規定可由符合EPUB無障礙輔助性，發現性章節達成。
 
-Presenting the information to users in ways they can perceive
-Out of scope: requirement for Reading Systems and Distributors.
+###### 2.1.1.2.1 (i)
 
-2.1.1.2.4 (iv)
+使資訊能透過超過一種的知覺管道獲得。
 
-Allowing alternative renditions of the content and its interoperability with a variety of assistive technologies, in such a way that it is perceivable, understandable, operable and robust
-NOTE
-In the context of the European Accessibility Act the term rendition does not refer to the EPUB 3 multiple renditions specification, it means the ability to access content in different ways.
+目標外：此為對閱讀系統和遞送端的規定。
 
-This requirement is satisfied by WCAG 2.
+###### 2.1.1.2.2 (ii)
 
-2.1.1.2.5 (v)
+以可理解的方式呈現該資訊。
 
-Presenting in fonts of adequate size and suitable shape, taking into account foreseeable conditions of use and using sufficient contrast, as well as adjustable spacing between letters, lines and paragraphs
-This requirement is satisfied by WCAG requirement 1.4.4 Resize text (level AA) and by WCAG requirement Contrast 1.4.3 1.4.3 Contrast (Minimum) (level AA).
+目標外：此為對閱讀系統和遞送端的規定。
 
-2.1.1.2.6 (vi)
+###### 2.1.1.2.3 (iii)
 
-Supplementing any non-textual content with an alternative presentation of that content and
-This requirement is satisfied by WCAG requirement 1.1.1 Non-text Content (level A).
+以使用者可以感知的方式呈現該資訊。
 
-2.1.1.2.7 (vii)
+目標外：此為對閱讀系統和遞送端的規定。
 
-Providing electronic information needed in the provision of the service in a consistent and adequate way by making it perceivable, operable, understandable and robust
-Out of scope: requirement for Reading Systems and Distributors.
+###### 2.1.1.2.4 (iv)
 
-2.1.1.3 (c)
+准許替代的內容釋義，並且可在不同的輔助技術間互通，如此可使其可感知（perceivable）、可操作（operable）、可理解（understandable）、且為穩健的（robust）。
 
-Making websites, including the related online applications, and mobile device-based services, including mobile applications, accessible in a consistent and adequate way by making them perceivable, operable, understandable and robust
-Out of scope: requirement for Reading Systems and Distributors.
+注意事項
 
-2.1.1.4 (d)
+在歐盟無障礙法的脈絡中，用語「內容釋義（rendition）」並非指涉EPUB 3多重內容釋義規格，其意旨能夠採不同方式存取內容的能力。
 
-Where available, support services (help desks, call centres, technical support, relay services and training services) providing information on the accessibility of the service and its compatibility with assistive technologies, in accessible modes of communication
-Out of scope: requirement for Reading Systems and Distributors.
+本項規定可由符合WCAG 2達成。
 
-2.1.2 Section IV
+###### 2.1.1.2.5 (v)
 
-Additional accessibility requirements related to specific services
-2.1.2.1 (f)
+字體以足夠的尺寸和合適的形狀呈現，須預先考量使用狀態並鐵使用足夠的對比，也須讓字母間距、行距和段落間距能被調整。
 
-Ebooks
-2.1.2.1.1 (i)
+該規定可由符合WCAG規定1.4.4調整文字尺寸（AA等級）和WCAG規定1.4.3對比（最底限）（AA等級）達成。
 
-Ensuring that, when an ebook contains audio in addition to text, it then provides synchronised text and audio
-The audio synched to text feature is called Media Overlay in the EPUB world and it provides an effective synchronization between text and audio.
+###### 2.1.1.2.6 (vi)
 
-2.1.2.1.2 (ii)
+對非文字內容提供替代的呈現。
 
-Ensuring that ebook digital files do not prevent assistive technology from operating properly
-The EPUB Accessibility document uses the definition of assistive technology as defined in WCAG2.
+本項規定可由符合WCAG規定1.1.1非文字內容（A等級）達成。
 
-This requirement is satisfied by:
+###### 2.1.1.2.7 (vii)
 
-WCAG conformance requirement Only Accessibility-Supported Ways of Using Technologies;
-WCAG conformance requirement Non-Interference;
-WCAG principle 4 Robust (level A);
-WCAG Guideline 2.1 Keyboard Accessible (level A).
-2.1.2.1.3 (iii)
+為提供的服務提出需要的電子資訊，以一致且適當的方式使其可感知、可操作、可理解、且為穩健的。
 
-Ensuring access to the content, the navigation of the file content and layout including dynamic layout, the provision of the structure, flexibility and choice in the presentation of the content
-This requirement is satisfied by:
+目標外：此為對閱讀系統和遞送端的規定。
 
-EPUB specifications section TOC nav;
-EPUB Accessibility Page Navigation requirement;
-WCAG Principle 1.3 Adaptable (level A).
-2.1.2.1.4 (iv)
+##### 2.1.1.3 (c)
 
-Allowing alternative renditions of the content and its interoperability with a variety of assistive technologies, in such a way that it is perceivable, understandable, operable and robust
-NOTE
-In the context of the European Accessibility Act the term rendition does not refer to the EPUB 3 multiple renditions specification, it means the ability to access content in different ways.
+使網站，包含相關的線上應用程式，以及基於行動裝置的服務，包含行動應用程式具無障礙輔助性。以一致且適當的方式使其可感知、可操作、可理解、且為穩健的。
 
-This requirement is satisfied by WCAG 2.
+目標外：此為對閱讀系統和遞送端的規定。
 
-2.1.2.1.5 (v)
+##### 2.1.1.4 (d)
 
-Making them discoverable by providing information through metadata about their accessibility features
-This requirement is satisfied by EPUB Accessibility, section Discoverability.
+在可獲得之處，協助服務（客服櫃台、電話中心、技術協助、轉接服務以及訓練服務）提供關於該服務的無障礙輔助性以及對輔助技術相容的資訊，以無障礙的溝通模式進行。
 
-2.1.2.1.6 (vi)
+目標外：此為對閱讀系統和遞送端的規定。
+
+#### 2.1.2 節 IV
+
+對特別服務相關的額外無障礙輔助性規定。
+
+##### 2.1.2.1 (f)
+
+電子書
+
+###### 2.1.2.1.1 (i)
+
+確保當一本電子書在文字外包含聲音時，可以讓文字與聲音與同步。
+
+在EPUB世界中，讓聲音對文字同步功能稱為媒體覆蓋，其為文字與聲音同步提供了有效的手段。
+
+###### 2.1.2.1.2 (ii)
+
+確保電子書的數位檔案不會阻礙輔助技術使其無法正確運作。
+
+EPUB無障礙輔助性文件使用WCAG 2的輔助技術定義。
+
+本項規定可透過符合以下滿足：
+
+WCAG 適用性規定 僅使用有無障礙輔助協助的技術;
+WCAG 適用性規定 不干擾;
+WCAG 原則4 穩健性 (A等級);
+WCAG 指引 2.1 鍵盤無障礙輔助性 (A等級).
+
+###### 2.1.2.1.3 (iii)
+
+確保對內容的存取，檔案內容的導覽以及包含動態排版的版面，為內容的呈現提供結構、彈性以及和選擇。
+
+本項規定可透過符合以下滿足：
+
+EPUB規格章節 TOC nav;
+EPUB無障礙輔助性 頁面導覽規定;
+WCAG原則 1.3 可適應 (A等級).
+
+###### 2.1.2.1.4 (iv)
+
+准許替代的內容釋義，並且可在不同的輔助技術間互通，如此可使其可感知（perceivable）、可操作（operable）、可理解（understandable）、且為穩健的（robust）。
+
+注意事項
+
+在歐盟無障礙法的脈絡中，用語「內容釋義（rendition）」並非指涉EPUB 3多重內容釋義規格，其意旨能夠採不同方式存取內容的能力。
+
+本項規定可由符合WCAG 2達成。
+
+###### 2.1.2.1.5 (v)
+
+透過詮釋資料以提供其無障礙輔助功能的資訊，以讓其可以被發現。
+
+本項規定可由符合EPUB無障礙輔助性，發現性章節達成。
+
+###### 2.1.2.1.6 (vi)
+
+確保數位權利管理措施不會阻礙無障礙輔助功能。
+
+本項規定可由符合EPUB無障礙輔助性，遞送章節達成（非規範性）。
 
 Ensuring that digital rights management measures do not block accessibility features
 This requirement is satisfied by EPUB Accessibility, section Distribution (non normative).
 
-A. References
+## A. 參考資料
 
-A.1 Informative references
+### A.1 參考性文件
 
 [epub-33]
 EPUB 3.3. Matt Garrish; Ivan Herman; Dave Cramer. W3C. 7 December 2021. W3C Working Draft. URL: https://www.w3.org/TR/epub-33/
+
 [epub-a11y-11]
 EPUB Accessibility 1.1. Matt Garrish; George Kerscher; Charles LaPierre; Gregorio Pellegrino; Avneesh Singh. W3C. 25 November 2021. W3C Working Draft. URL: https://www.w3.org/TR/epub-a11y-11/
 ↑
