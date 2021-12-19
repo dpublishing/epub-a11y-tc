@@ -30,5 +30,5 @@
 
 - [EPUB無障礙輔助性常見問題](https://bobbytung.github.io/EPUB-A11y-1.1-TC/a11y-faq.html)（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
 
-- [EPUB Fixed Layout無障礙輔助性]（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/)
+- [EPUB Fixed Layout無障礙輔助性](https://bobbytung.github.io/EPUB-A11y-1.1-TC/ED-epub-fxl-a11y-20211214.html)（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/)
 )）
