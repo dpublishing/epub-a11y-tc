@@ -231,7 +231,7 @@ title — 等同於HTML的alt屬性；其用於提供整個SVG圖片以及其中
 
 desc — 用於提供整個SVG圖片以及其中獨立元件的延伸敘述。
 
-當一份出版品由固定版面SVG頁面所構成時，這兩個元素可以被用於描述其內容。請注意ARIA屬性 (role及aria-describedby) 用於增進對輔助技術的支援，但在SVG上依然未完整支援。
+當一份出版品由固定版面SVG頁面所構成時，這兩個元素可以被用於描述其內容。請注意ARIA屬性 (role及aria-describedby) 用於增進對輔助科技的支援，但在SVG上依然未完整支援。
 
 <svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" role="group" aria-describedby="svgtitle svgdesc">
 <title id="svgtitle">The Hydrologic Cycle</title>
@@ -251,7 +251,7 @@ SVG元素中title與desc也可以用於註解大幅圖片中的部件。
 …
 </g>
 
-使用這些元素來對SVG進行著解的問題在於，這些內容一般僅能透過輔助技術讓使用者取得。
+使用這些元素來對SVG進行著解的問題在於，這些內容一般僅能透過輔助科技讓使用者取得。
 
 更先進的做法是添加一個連結或者按鍵，使用動畫或者腳本來檢視描述（例如以跳出方式開啟描述）。EPUB閱讀系統對這種手段的支援可能有所限制，但鼓勵多加嘗試。
 

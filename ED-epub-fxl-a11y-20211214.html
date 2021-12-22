@@ -728,7 +728,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p>
 <p><code>title</code> — 等同於HTML的alt屬性；其用於提供整個SVG圖片以及其中獨立元件的替代文字。</p>
 <p><code>desc</code> — 用於提供整個SVG圖片以及其中獨立元件的延伸敘述。</p>
-<p>當一份出版品由<a href="http://kb.daisy.org/publishing/docs/fxl/svg.html">固定版面SVG頁面</a>所構成時，這兩個元素可以被用於描述其內容。請注意ARIA屬性 (<code>role</code>及<code>aria-describedby</code>) 用於增進對輔助技術的支援，但在SVG上依然未完整支援。</p><pre><code class="html hljs" aria-busy="false">
+<p>當一份出版品由<a href="http://kb.daisy.org/publishing/docs/fxl/svg.html">固定版面SVG頁面</a>所構成時，這兩個元素可以被用於描述其內容。請注意ARIA屬性 (<code>role</code>及<code>aria-describedby</code>) 用於增進對輔助科技的支援，但在SVG上依然未完整支援。</p><pre><code class="html hljs" aria-busy="false">
 <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span> <span class="hljs-attr">xml:lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"svgtitle svgdesc"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"svgtitle"</span>&gt;</span>The Hydrologic Cycle<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">desc</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"svgdesc"</span>&gt;</span>The continuous cycle by which water …<span class="hljs-tag">&lt;/<span class="hljs-name">desc</span>&gt;</span>
@@ -743,7 +743,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"gtitle"</span>&gt;</span>Rain clouds<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
 …
 <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
-</code></pre><p>使用這些元素來對SVG進行著解的問題在於，這些內容一般僅能透過輔助技術讓使用者取得。</p>
+</code></pre><p>使用這些元素來對SVG進行著解的問題在於，這些內容一般僅能透過輔助科技讓使用者取得。</p>
 <p>更先進的做法是添加一個連結或者按鍵，使用動畫或者腳本來檢視描述（例如以跳出方式開啟描述）。EPUB閱讀系統對這種手段的支援可能有所限制，但鼓勵多加嘗試。</p></section><section id="html"><h3 id="x3-3-html"><bdi class="secno">3.3 </bdi>HTML<a class="self-link" href="#html" aria-label="Permalink for Section 3.3"></a></h3><p>當一則圖片嵌入於HTML固定版面頁面時就有更多可用的方式來包含無障礙輔助用描述。就像SVG固定版面一樣，主要的限制考量一樣是僅有有限的螢幕空間能夠包含描述。</p>
 <p>因此，描述通常使用各種HTML、ARIA以及CSS技巧在視覺上進行隱藏。描述可以被隱藏、省略一部分、改為透明、變成圖片下的圖層等。<a href="http://kb.daisy.org/publishing/docs/html/hidden.html">知識庫上的隱藏內容頁面</a>提供更近一步對可能性的探索。</p>
 <p>對EPUB的XHTML內容文件中的腳本支援，目前比起對SVG文件的支援來得好，所以有更多可靠的技巧捨已使用，讓描述被更廣範圍使用者所觀看到。透過點擊或者觸摸圖片來呈現其描述，例如。<a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol">範本生命之旅EPUB</a>為本技巧實驗性的範例。</p>

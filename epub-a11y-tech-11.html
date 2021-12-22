@@ -944,7 +944,7 @@ var [data-type] :hover::after,var [data-type] :hover::before{opacity:1}
 
 					<p>儘管<code>role</code>屬性在性質上可能與<a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"><code>type</code>屬性</a>類似 [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">EPUB-3</a></cite>] ，但其在EPUB內容文件的目的不會重疊。</p>
 
-					<p>這些屬性的關鍵差異在於，<code>role</code>屬性在內容中用於建構無障礙輔助性，而<code>type</code>屬性提供連結以觸發閱讀系統行為。忽略role屬性會對輔助技術的使用者降低無障礙輔助性，另一個角度，忽略type屬性則會停用某些閱讀系統功能（例如，跳出式註解，或者內容的特殊顯示方式）。</p>
+					<p>這些屬性的關鍵差異在於，<code>role</code>屬性在內容中用於建構無障礙輔助性，而<code>type</code>屬性提供連結以觸發閱讀系統行為。忽略role屬性會對輔助科技的使用者降低無障礙輔助性，另一個角度，忽略type屬性則會停用某些閱讀系統功能（例如，跳出式註解，或者內容的特殊顯示方式）。</p>
 
 					<p>雖然每種屬性提供不同的好處，但並不一定要一起使用。因為沒有限制EPUB使用者可以將<code>type</code>屬性用於何處，併用這些屬性可能會造成無障礙輔助性問題（例如，將role用於<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] 的<code>body</code>元素）。</p>
 
@@ -1021,9 +1021,9 @@ var [data-type] :hover::after,var [data-type] :hover::before{opacity:1}
 				<section id="sem-003">
 					<h4 id="x4-3-3-include-epub-landmarks"><bdi class="secno">4.3.3 </bdi>包含EPUB的landmarks元素<a class="self-link" href="#sem-003" aria-label="Permalink for Section 4.3.3"></a></h4>
 
-					<p> [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.1" title="Accessible Rich Internet Applications (WAI-ARIA) 1.1">WAI-ARIA-1.1</a></cite>] 的<a href="https://www.w3.org/TR/wai-aria-1.1/#dfn-landmark">landmarks</a>在性質上與<a href="https://www.w3.org/TR/epub/#sec-nav-landmarks">EPUB landmarks</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">EPUB-3</a></cite>] 相似：兩者都是設計用於讓使用者快速存取一份文件中的主要結構，像是章節、詞彙表以及索引。ARIA的landmarks是由輔助技術自動從套用在標記中的<a href="#sem-001">roles</a>自動生成，所以EPUB製作者僅需要遵循規定加入roles，就可以讓使用者使用landmarks。</p>
+					<p> [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.1" title="Accessible Rich Internet Applications (WAI-ARIA) 1.1">WAI-ARIA-1.1</a></cite>] 的<a href="https://www.w3.org/TR/wai-aria-1.1/#dfn-landmark">landmarks</a>在性質上與<a href="https://www.w3.org/TR/epub/#sec-nav-landmarks">EPUB landmarks</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">EPUB-3</a></cite>] 相似：兩者都是設計用於讓使用者快速存取一份文件中的主要結構，像是章節、詞彙表以及索引。ARIA的landmarks是由輔助科技自動從套用在標記中的<a href="#sem-001">roles</a>自動生成，所以EPUB製作者僅需要遵循規定加入roles，就可以讓使用者使用landmarks。</p>
 
-					<p>雖然ARIA landmarks的自動生成可以簡化製作，但也意味著，ARIA landmarks受到EPUB出版品中內容文件如何切分所限制。輔助技術僅能呈現目前載入文件中可取得的landmarks；並不能提供一份多文件出版品中所有landmark的完整輪廓（請見<a href="#sem-002">前一節</a>對於內容分塊的更多討論）。</p>
+					<p>雖然ARIA landmarks的自動生成可以簡化製作，但也意味著，ARIA landmarks受到EPUB出版品中內容文件如何切分所限制。輔助科技僅能呈現目前載入文件中可取得的landmarks；並不能提供一份多文件出版品中所有landmark的完整輪廓（請見<a href="#sem-002">前一節</a>對於內容分塊的更多討論）。</p>
 
 					<p>EPUB的landmarks則是相反，由EPUB製作者在遞送發行前預先處理，而且並不直接連結到內容中使用的<a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"><code>type</code>屬性</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">EPUB-3</a></cite>] 。他們在設計上是為了以機器可以讀取的方式，簡化對出版品中主要區塊的連結，因為閱讀系統也不會對整份出版品掃描來尋找landmarks。EPUB的landmarks一般不會像ARIA的landmarks那樣大量，因為閱讀系統只會有少數的導覽需求。</p>
 
@@ -1379,7 +1379,7 @@ var [data-type] :hover::after,var [data-type] :hover::before{opacity:1}
 
 					<p>EPUB結構語意用語 [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary">EPUB-SSV</a></cite>] 以及數位出版WAI-ARIA 1.0模組 [<cite><a class="bibref" data-link-type="biblio" href="#bib-dpub-aria-1.0" title="Digital Publishing WAI-ARIA Module 1.0">DPUB-ARIA-1.0</a></cite>] ，兩者都分別提供了供靜態分頁點的語意：<a href="https://www.w3.org/TR/epub/#pagebreak">pagebreak</a>和 <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagebreak">doc-pagebreak</a>。</p>
 
-					<p>推薦同時在EPUB 3內容中應用兩種語意，以確保對閱讀系統和輔助技術的最大相容性。</p>
+					<p>推薦同時在EPUB 3內容中應用兩種語意，以確保對閱讀系統和輔助科技的最大相容性。</p>
 
 					<aside class="example" id="example-expressing-a-page-break"><div class="marker">
     <a class="self-link" href="#example-expressing-a-page-break">範例<bdi> 16</bdi></a><span class="example-title">: 表達一個分頁點</span>
@@ -1611,9 +1611,9 @@ var [data-type] :hover::after,var [data-type] :hover::before{opacity:1}
 
 				<p>EPUB出版品一般在遞送時，需要保護出版社以及作者的智慧財產權（也就是，這樣才可能透過線上書店進行販售，或者透過圖書館系統派送）。滿足這項需求最常見的方法是透過應用數位權利管理（digital rights management, DRM）綱要於包裝好的EPUB出版品上。DRM可啟動各種安全功能，其並非EPUB格式所原生，像是限制僅讓單一使用者存取，以及限制可存取該出版品的時間（例如圖書館借閱）。</p>
 
-				<p>一般而言，DRM可和輔助技術共存，但在DRM限制移除對EPUB出版品的直接存取，或者限制對其中內容的存取時，就會產生問題。除非閱讀系統實作的DRM提供API層級對內容的存取，不然就有困難或者近乎不可能進行文字轉換語音播放，或者供可更新的點字顯示去存取底層文字，也會造成其他的無障礙輔助性問題。</p>
+				<p>一般而言，DRM可和輔助科技共存，但在DRM限制移除對EPUB出版品的直接存取，或者限制對其中內容的存取時，就會產生問題。除非閱讀系統實作的DRM提供API層級對內容的存取，不然就有困難或者近乎不可能進行文字轉換語音播放，或者供可更新的點字顯示去存取底層文字，也會造成其他的無障礙輔助性問題。</p>
 
-				<p>因此，應用DRM不能對具有權利存取EPUB出版品的使用者，減弱或者妨害輔助技術的功能性。</p>
+				<p>因此，應用DRM不能對具有權利存取EPUB出版品的使用者，減弱或者妨害輔助科技的功能性。</p>
 			</section>
 
 			<section id="dist-002">
