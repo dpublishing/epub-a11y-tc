@@ -23,7 +23,7 @@
 
 - [EPUB無障礙輔助性 1.1](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
 
-- [EPUB無障礙技術指引 1.1](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-tech-11.html)（原文：[EPUB Accessibility Techniques 1.1
+- [EPUB無障礙輔助性技巧 1.1](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-tech-11.html)（原文：[EPUB Accessibility Techniques 1.1
 ](https://www.w3.org/TR/epub-a11y-tech-11/)）
 
 - [EPUB無障礙輔助性常見問題](https://dpublishing.github.io/epub-a11y-tc/a11y-faq.html)（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
