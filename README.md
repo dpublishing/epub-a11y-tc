@@ -21,14 +21,14 @@
 
 ### 文件清單
 
-- [EPUB無障礙輔助性 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
+- [EPUB無障礙輔助性 1.1](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-11.html)（原文：[EPUB Accessibility 1.1](https://www.w3.org/TR/epub-a11y-11/)）
 
-- [EPUB無障礙技術指引 1.1](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-tech-11.html)（原文：[EPUB Accessibility Techniques 1.1
+- [EPUB無障礙輔助性技巧 1.1](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-tech-11.html)（原文：[EPUB Accessibility Techniques 1.1
 ](https://www.w3.org/TR/epub-a11y-tech-11/)）
 
-- [EPUB無障礙輔助性常見問題](https://bobbytung.github.io/EPUB-A11y-1.1-TC/a11y-faq.html)（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
+- [EPUB無障礙輔助性常見問題](https://dpublishing.github.io/epub-a11y-tc/a11y-faq.html)（原文：[EPUB Accessibility Frequently Asked Questions](https://w3c.github.io/epub-specs/docs/a11y-faq/)）
 
-- [EPUB無障礙輔助性與歐盟無障礙法之對應關係](https://bobbytung.github.io/EPUB-A11y-1.1-TC/epub-a11y-eaa-mapping.html)（原文：[EPUB Accessibility - EU Accessibility Act Mapping](https://www.w3.org/TR/epub-a11y-eaa-mapping/)）
+- [EPUB無障礙輔助性與歐盟無障礙法之對應關係](https://dpublishing.github.io/epub-a11y-tc/epub-a11y-eaa-mapping.html)（原文：[EPUB Accessibility - EU Accessibility Act Mapping](https://www.w3.org/TR/epub-a11y-eaa-mapping/)）
 
-- [EPUB Fixed Layout無障礙輔助性](https://bobbytung.github.io/EPUB-A11y-1.1-TC/ED-epub-fxl-a11y-20211214.html)（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/)
+- [EPUB Fixed Layout無障礙輔助性](https://dpublishing.github.io/epub-a11y-tc/ED-epub-fxl-a11y-20211214.html)（原文：[EPUB Fixed Layout Accessibility](https://w3c.github.io/epub-specs/epub33/fxl-a11y/)
 )）
